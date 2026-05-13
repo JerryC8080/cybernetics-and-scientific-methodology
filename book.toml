@@ -10,9 +10,10 @@ build-dir = "docs"
 [output.html]
 default-theme = "light"
 preferred-dark-theme = "navy"
-smart-punctuation = true
+smart-punctuation = false
 mathjax-support = false
 no-section-label = true
+additional-css = ["theme/book.css"]
 
 [output.html.fold]
 enable = true
