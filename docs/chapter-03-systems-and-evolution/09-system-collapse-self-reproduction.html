@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>3.9 系统的崩溃:自繁殖现象 - 控制论与科学方法论</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-2459343d.css">
+        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex-5f3d57f4.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc-4f0c59a4.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">控制论与科学方法论</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="39-系统的崩溃自繁殖现象"><a class="header" href="#39-系统的崩溃自繁殖现象">3.9 系统的崩溃:自繁殖现象</a></h1>
+<p>我们有必要专门讨论一下系统演化过程中旧结构瓦解时发生的一种特殊情况,这就是繁殖。自繁殖现象往往标志着系统原有稳态结构迅速打破,发生崩溃,造成系统旧稳态结构急骤瓦解,系统以暴风骤雨般的力量向新稳态过渡。</p>
+<p>核爆炸、激光、细菌繁殖、癌的生长、传染病的流行等现象,表面看去,它们之间毫无共同之处,但控制论却给它们一个统一的名字:自繁殖系统。它们是系统从一种稳态结构向另一种结构演化过程中出现的现象,它们有一个共同的特征:在一定条件下,某变量值越大,变量值增加越快。比如核爆炸,在一定条件下,核反应速度随着核物质质量的增加而迅速地增快,即参与核反应的原子越多,放出的中子就越多,核反应也进行得越快。这样一来,参与反应的原子以几何级数增加着,直到核燃料全部参加反应力止,在极短的时间里释放出巨大的能量。自繁殖系统一旦存在,那么不管开始它对周围的影响是多么小,最后将产生巨大的不可忽视的影响。一个光量子放出的能量是很小的,可一旦具有同一频率的光量子自繁殖起来,就会产生巨大能量的激光。个别分化不良的细胞对整个人体来说没有什么影响,但大量的癌细胞以自繁殖的速度增长起来,却可以危害一个人的生命。</p>
+<p>自繁殖过程有什么共同性呢?</p>
+<p>（1）任何自繁殖过程往往存在一个临界值,只有当一个系统变量大于这一临界值,才会有自繁殖发生。一般说来,这个临界值取决十系统结构的稳定程度,系统越稳定,抗干扰的能力越大,相应的临界值就越高。</p>
+<p>如果铀235的质量小于一定值,并且达不到一定纯度的话,核爆炸是不会发生的,这个值被称为铀235的临界质量。为什么必须大于临界质量才会发生核爆炸呢?当中子引起铀235核裂变时,每个铀235原子核平均放出2.5个中子。新放出的中子叫做二次中子或第二代中子,它们和原来的中子一样,又能使别的铀235裂变,产生第三代中子。裂变过程这样继续下去,就会产生第四代、第五代等等许多代中子。照理这种反应按几何级数增长,核爆炸会迅速发生。但实际上,不是全部裂变产生的中子都能继续参加裂变反应。有些中子会飞到铀块外面去,有的要被设备中袖以外的材料所吸收。通常把链式反应中下一代中子数对上一代中子数的比例叫做中子增殖系数。中子增殖系数大于1时,链式反应的规模越来越大,称作中子的增殖,又叫自持式链式反应。中子增殖系数小于1时,链式反应的规模越来越小,最后就中断了。中子增殖系数跟铀块的质量有关,在临界质量以上,中子增殖系数大于1,核爆炸才会发生。</p>
+<p>生物界也存在若类似的情况。任何一种生物照理都可以构成一个自繁殖系统,如果生物所有的后代都能存活并继续产生后代,数量就会以几何级数增长。但这一自繁殖过程并不总是出现,原因在于生物和环境密切作用,它们的数量受到食物、天敌、气候等制约。要使一个物种的实际增殖系数大于1,这个物种的数量必须要大于一定的值。</p>
+<p>（2）自繁殖系统内部存在着一条有因果关系的自动增长链。</p>
+<p>在积雪很厚的陆坡上,开始由于偶然的原因可能有一些雪下落,这些雪下落过程中又冲击着更多的雪下落,这样下落的雪越来越多,奔腾直下,造成大规模的雪崩,会把位于山谷中的房屋道路都给埋没。这也是一个自繁殖过程。我们看到,在一定条件下,雪下落的事实本身就成为更多雪下落的原因,系统内形成一条自我因果的链,造成系统繁殖的原因来自系统内部。核反应中铀235放出的第一代中子引起其他铀235核裂变,成为第二代中子产生的原因。而第二代中子放出的结果又成为第三代中子产生的原因。生物世代交替,子代所承袭的不仅是父代的形体,也承袭了父代繁殖的本领。正因为系统内存在着这样一条自我增长链,自繁殖过程也常常被称为链式反应。</p>
+<p>（3）很多自繁殖系统的形成是由于负反馈控制机制破坏引起的。</p>
+<p>自然界许多具有自繁殖能力的系统不是孤立存在的,它们跟周围环境有相互反馈的制约作用,在一般情形下,自繁殖现象被这种反馈作用有效地控制着,一旦反馈控制机制破坏,自繁殖现象就出现了。</p>
+<p>一个突出的例子是癌产生的原因问题。有的生理学家认为,人体很多细胞的繁殖是通过如下机构（图3.18）控制的。</p>
+<p><img src="../assets/Images/image00144.gif" alt="3.18"></p>
+<p>这一过程一般是正常的。即可以生出一些适量的新细胞来补充旧细胞的老化和死亡,维持新陈代谢的进行。新细胞的产生又受到一定的抑制不会无限增生。如果抑制机构失灵了,在一定条件下,就会使新生细胞的产生不可遏制,成为一个自繁殖系统,这就产生了癌。比如一些理论家认为,一般细胞繁殖之所以不以几何级数增长,构成一个自繁殖系统,其原因是有这种反馈抑制系统存在。即当新生细胞生长成熟到一定程度就有一种抑制生长的因子放出来,这一抑制生长因子反馈回来阻止着细胞进一步分化。但如果这一反馈过程受到破坏,比如当新生细胞尚未成熟就死亡了,而一般抑制因子是在新生细胞完全成熟后才产生的,这样,这一反馈过程就被减弱,抑制因数量大大减少,以至于幼稚细胞大量繁殖,造成了癌。新生细胞之所以在未成熟之前就死亡,原因可能是由于某些酶的缺乏,造成了新生细胞不能维持正常寿命,从而使反馈中断,形成一个自繁殖系统。如将卵巢用手术移植至动物的脾脏,使得反馈中断,垂体得不到反馈信息而分泌大量促性腺激素而造成卵巢癌。</p>
+<p>关于癌的研究,可以说,控制论是一个新的并且看来是很有希望的方法。目前用控制论建立了不少癌症病理模型,基本思想是把癌看作一个控制系统失调而引起的自繁殖过程。</p>
+<p>不仅是癌,自然界许多自繁殖系统的发生与反馈抑制的失调有关。比如20世纪60年代,在意大利,毒蛇猛增,以致 危害到居民住宅的安全,这在历史上从未有过。原因是由于以往蛇的天敌如刺猬等存在,它们的数量有效地抑制着蛇的数量。但由于近年来环境的变化,使调节着各生物之间数量平衡的反馈受到破坏,使蛇的天敌数量减少,造成蛇的自繁殖。</p>
+<p>研究自繁殖系统究竟有什么用处呢?有了这种研究,就可以指导我们去抑制我们不需要的自繁殖过程,引发对我们有利的自繁殖过程。</p>
+<p>这方面最有趣的例子是消灭蜼蝇的试验。为了消灭蜼蝇,除了用化学杀虫剂以外,是否有更有效、更简单的办法呢?通过自繁殖过程的分析知道,如果我们将蜼蝇的数量制到一定数量以下,则由于自然原因,它繁殖不起来,就会自然消亡。而分析蜼蝇的自繁殖过程发现,蜼蝇一生只交配一次。因此,人们放出一定数量的受过放射性照射的雄蝇,这些雄蝇和雌蝇交配后所产的卵是不能孵化的,和受过放射性处理过的雄蝇交配过的蜼蝇再也不会和其他雄蝇交配了。这样只要受到放射性照射的雄蝇超过一定数量。就可将子代蜼蝇的数量控制在临界值以下,从而使蜼蝇的自繁殖链受到抑制,造成蜼蝇死亡。第一次试验是在加勒比海的某海岛进行的。由飞机低空撒下经过处理的雄蝇,每周每平方公里100只。三个月后,100%的卵都不能孵化了。第二次试验是在面积为170平方公里的古拉克岛,4个月后,岛上便再也找不到一只蜼蝇了。在这一控制中撒雄蝇数量很重要,在一定数量以下,就会没有作用。多于一定数量,又是没有必要的。</p>
+<p>此外人们还想出了许多遏制自繁殖过程的方法,如化学中的防爆剂,游离基吸收剂,某些胶溶液中的稳定剂等等。在核子反应堆中,最重要的问题就是控制链式反应,使它不发生像 核爆炸那样的自繁殖过程。科学家找到了各种中子慢化剂和中子吸收剂,把反应堆内的中子增殖系数控制在1.007以下。由于反应堆实际参加链式反应的是寿命较长的慢中子,因此即使有事故发生,也最多是厂房受到破坏,放射性物质外逸出来。像原子弹那样的猛烈爆炸是绝对不会有的。</p>
+<p>在另一方面,人们又想尽方法创造条件来引发自繁殖过程,利用它达到人们的某种目的。激光器的发明就是一个很 好的例子。激光器与寻常的光源大不相同,它的性质是很奇特的。它发出激光,具有很高的方向性,非常纯净单一的颜色以及极强的功率,因此在现代科学技术中占有十分重要的地位。什么激光跟普通的光线不同呢?原来,普通充气灯的发光都属于原子的自发发射过程,处于激发能极E<sub>1</sub>的原子自发地跃迁到基能极E<sub>0</sub>上,同时发射出一个光子来。每一个发光的原子都是独立的爱光体,它们彼.此之间没有联系。而激光的基础是原子的受激发射过程,处于激发能级E<sub>1</sub>的原子受到一个光子的激发,跃迁到基能级E<sub>0</sub>上同时发射出一个光子,这样一来,就有了两个光子了。我们注意到,受激发射的结果正是产生受激发射的原因。这个宝贵的性质使受激发射有可能成为一个有自动因果链的自繁殖系统。但是要具体构造一个激光器,使自繁殖过程能顺利进行,还要为它创造许多条件。首先,如果工作物质的原子大多处于基能级E<sub>0</sub>,它们有可能将受激发射出的光子都吸收掉,使那条因果链中断掉。科学家在激光器中使用了气体放电等方法,使处于高能级的原子数目超过处于低能级E<sub>0</sub>的原子数目,造成所谓“反分布状态“。其次,为使这条自动因果链能够产生数量巨大的光子,科学家用两个面对面的反射镜构成一个谐振腔,在光学中被人们称为法布里一珀罗干涉仪,它的主要作用是把被放大了的光的一部分作为反馈来进一步地将光放大。沿着轴线方向的光子在两个反射面之间不断往返运行,不断地刺激处于激发态、的原子,使它们发射出更多的光子来。通过这种受激发射作用,沿轴线方向的光子数目就会不断增加,形成一个自繁殖系统,在腔里逐渐积聚起很强的光来,并从部分反射镜那一端透射出去,这就是激光。</p>
+<p>自繁殖系统内变量发生迅速增长的现象。但实际上,任何自繁殖系统这种变量增长的现象不会无限延伸下去。系统演化经过自繁殖过程一般会发生系统的崩溃。原有的变量耦合关系将发生变化,还会出现一些新的变量。自繁殖是系统演化过程中的一个不稳定阶段,这种不稳定迅速把系统由原有的稳定结构推向另一稳态结构,产生一个新系统。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter-03-systems-and-evolution/08-system-evolution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
+
+                            <a rel="next prefetch" href="../chapter-03-systems-and-evolution/10-self-organizing-systems.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter-03-systems-and-evolution/08-system-evolution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
+
+                    <a rel="next prefetch" href="../chapter-03-systems-and-evolution/10-self-organizing-systems.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-c2a407aa.js"></script>
+
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
