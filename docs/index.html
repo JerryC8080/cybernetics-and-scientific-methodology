@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-a2e09b23.js";
+            window.path_to_searchindex_js = "searchindex-f9afaf32.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-4f0c59a4.js"></script>
+        <script src="toc-bad25fb0.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,6 +178,19 @@
                         <h1 id="控制论与科学方法论"><a class="header" href="#控制论与科学方法论">控制论与科学方法论</a></h1>
 <p>金观涛 著。</p>
 <p>这个版本由 MOBI 转换而来，并整理为适合长期维护和 HTML 阅读的 mdBook 结构。左侧目录来自 <code>src/SUMMARY.md</code>，正文按章节和小节拆分，图片统一存放在 <code>src/assets/Images/</code>。</p>
+<h2 id="全书思维导图"><a class="header" href="#全书思维导图">全书思维导图</a></h2>
+<p>下面是全书五章的总览思维导图（由 <a href="https://markmap.js.org/">Markmap</a> 生成，可缩放、可点击折叠分支）。
+点击 <a href="appendix/mind-maps.html">附录 · 各章思维导图</a> 可查看每一章独立的、更详细的思维导图。</p>
+<iframe src="assets/markmaps/00-overview.html" style="width:100%;height:560px;border:1px solid #e2d8c4;border-radius:6px;background:#fdfaf3;" loading="lazy" title="全书思维导图"></iframe>
+<blockquote>
+<p>操作提示：滚轮缩放，拖拽平移，点击节点上的圆点可折叠 / 展开下级分支。
+在新窗口打开：<a href="assets/markmaps/00-overview.html">全屏查看 →</a></p>
+</blockquote>
+<h2 id="怎么读这本书"><a class="header" href="#怎么读这本书">怎么读这本书</a></h2>
+<ul>
+<li>想要"先建立框架再读细节"：先看上面这张总览图，再进入正文。</li>
+<li>读完一章后：回到 <a href="appendix/mind-maps.html">附录 · 各章思维导图</a>，对照该章的思维导图复盘，看看哪些节点能在脑中自然展开、哪些需要回到原文再读一遍。</li>
+</ul>
 
                     </main>
 
@@ -208,22 +221,6 @@
         <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
         <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script>
-            const wsProtocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsAddress = wsProtocol + "//" + location.host + "/" + "__livereload";
-            const socket = new WebSocket(wsAddress);
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
         <script>
