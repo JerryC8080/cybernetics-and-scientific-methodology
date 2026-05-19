@@ -69,6 +69,7 @@
 # 附录
 
 - [附录](appendix/index.md)
+  - [各章思维导图](appendix/mind-maps.md)
   - [关于12个兵兵球问题](appendix/twelve-balls-problem.md)
   - [版权页](appendix/copyright.md)
   - [制作者](appendix/producer.md)

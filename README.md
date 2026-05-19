@@ -2,6 +2,20 @@
 
 这是从 MOBI 文件整理出来的 mdBook 版本，目录和文件名使用英文，正文保留中文。
 
+## 依赖
+
+仅需 [mdBook](https://rust-lang.github.io/mdBook/)。思维导图通过 [Markmap](https://markmap.js.org/) 预生成为静态 HTML，构建时需要 Node.js（已经测试 v22）。
+
+## 思维导图
+
+各章思维导图源文件在 `markmaps/*.md`，构建产物为 `src/assets/markmaps/*.html`，会被 mdBook 一起复制到 `docs/`。修改源文件后运行：
+
+```bash
+./scripts/build-markmaps.sh
+```
+
+脚本通过 `npx markmap-cli` 一次生成全部 HTML，无需全局安装。
+
 ## 本地阅读
 
 ```bash
